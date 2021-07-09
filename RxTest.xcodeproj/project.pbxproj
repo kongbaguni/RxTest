@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,12 @@
 		1BBC23F5268F026E007E5082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BBC23F3268F026E007E5082 /* Main.storyboard */; };
 		1BBC23F7268F0270007E5082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BBC23F6268F0270007E5082 /* Assets.xcassets */; };
 		1BBC23FA268F0270007E5082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BBC23F8268F0270007E5082 /* LaunchScreen.storyboard */; };
+		1BBC2402268F0370007E5082 /* DiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC2401268F0370007E5082 /* DiceModel.swift */; };
+		1BBC2404268F03B1007E5082 /* DiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC2403268F03B1007E5082 /* DiceViewModel.swift */; };
+		1BD0A1DC2697C57100118ECA /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0A1DB2697C57100118ECA /* GameModel.swift */; };
+		1BD0A1DE2697C92400118ECA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0A1DD2697C92400118ECA /* GameViewModel.swift */; };
+		1BD0A1E02697CA6700118ECA /* GameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0A1DF2697CA6700118ECA /* GameTableViewController.swift */; };
+		E856B01EBCD2F73DC8DC6BD7 /* Pods_RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC40C344E2420757DD54A59 /* Pods_RxTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,15 @@
 		1BBC23F6268F0270007E5082 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BBC23F9268F0270007E5082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BBC23FB268F0270007E5082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BBC2401268F0370007E5082 /* DiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceModel.swift; sourceTree = "<group>"; };
+		1BBC2403268F03B1007E5082 /* DiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceViewModel.swift; sourceTree = "<group>"; };
+		1BD0A1DA26958E2100118ECA /* RxTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RxTest.entitlements; sourceTree = "<group>"; };
+		1BD0A1DB2697C57100118ECA /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		1BD0A1DD2697C92400118ECA /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		1BD0A1DF2697CA6700118ECA /* GameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewController.swift; sourceTree = "<group>"; };
+		35A1A2A4D9733BDE94AA1D9F /* Pods-RxTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTest.release.xcconfig"; path = "Target Support Files/Pods-RxTest/Pods-RxTest.release.xcconfig"; sourceTree = "<group>"; };
+		5CC40C344E2420757DD54A59 /* Pods_RxTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B204F4BD279104169856B334 /* Pods-RxTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTest.debug.xcconfig"; path = "Target Support Files/Pods-RxTest/Pods-RxTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E856B01EBCD2F73DC8DC6BD7 /* Pods_RxTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +58,8 @@
 			children = (
 				1BBC23EC268F026E007E5082 /* RxTest */,
 				1BBC23EB268F026E007E5082 /* Products */,
+				C63B5DC84AF626AB6CF8533F /* Pods */,
+				6AA73D2521EAF53C1B28704D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +74,38 @@
 		1BBC23EC268F026E007E5082 /* RxTest */ = {
 			isa = PBXGroup;
 			children = (
+				1BD0A1DA26958E2100118ECA /* RxTest.entitlements */,
 				1BBC23ED268F026E007E5082 /* AppDelegate.swift */,
 				1BBC23EF268F026E007E5082 /* SceneDelegate.swift */,
 				1BBC23F1268F026E007E5082 /* ViewController.swift */,
 				1BBC23F3268F026E007E5082 /* Main.storyboard */,
+				1BD0A1DF2697CA6700118ECA /* GameTableViewController.swift */,
 				1BBC23F6268F0270007E5082 /* Assets.xcassets */,
 				1BBC23F8268F0270007E5082 /* LaunchScreen.storyboard */,
 				1BBC23FB268F0270007E5082 /* Info.plist */,
+				1BBC2401268F0370007E5082 /* DiceModel.swift */,
+				1BBC2403268F03B1007E5082 /* DiceViewModel.swift */,
+				1BD0A1DB2697C57100118ECA /* GameModel.swift */,
+				1BD0A1DD2697C92400118ECA /* GameViewModel.swift */,
 			);
 			path = RxTest;
+			sourceTree = "<group>";
+		};
+		6AA73D2521EAF53C1B28704D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CC40C344E2420757DD54A59 /* Pods_RxTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C63B5DC84AF626AB6CF8533F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B204F4BD279104169856B334 /* Pods-RxTest.debug.xcconfig */,
+				35A1A2A4D9733BDE94AA1D9F /* Pods-RxTest.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BBC23FE268F0270007E5082 /* Build configuration list for PBXNativeTarget "RxTest" */;
 			buildPhases = (
+				A894E47C3A76E25525C67847 /* [CP] Check Pods Manifest.lock */,
 				1BBC23E6268F026E007E5082 /* Sources */,
 				1BBC23E7268F026E007E5082 /* Frameworks */,
 				1BBC23E8268F026E007E5082 /* Resources */,
+				5292727AA9BD5F787B21BBD7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,14 +175,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5292727AA9BD5F787B21BBD7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxTest/Pods-RxTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxTest/Pods-RxTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxTest/Pods-RxTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A894E47C3A76E25525C67847 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RxTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1BBC23E6268F026E007E5082 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BBC2402268F0370007E5082 /* DiceModel.swift in Sources */,
+				1BD0A1E02697CA6700118ECA /* GameTableViewController.swift in Sources */,
+				1BBC2404268F03B1007E5082 /* DiceViewModel.swift in Sources */,
 				1BBC23F2268F026E007E5082 /* ViewController.swift in Sources */,
 				1BBC23EE268F026E007E5082 /* AppDelegate.swift in Sources */,
 				1BBC23F0268F026E007E5082 /* SceneDelegate.swift in Sources */,
+				1BD0A1DC2697C57100118ECA /* GameModel.swift in Sources */,
+				1BD0A1DE2697C92400118ECA /* GameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,11 +373,13 @@
 		};
 		1BBC23FF268F0270007E5082 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B204F4BD279104169856B334 /* Pods-RxTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RxTest/RxTest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QU9EPTU238;
+				DEVELOPMENT_TEAM = 4T76MG2EEJ;
 				INFOPLIST_FILE = RxTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,11 +394,13 @@
 		};
 		1BBC2400268F0270007E5082 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35A1A2A4D9733BDE94AA1D9F /* Pods-RxTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RxTest/RxTest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QU9EPTU238;
+				DEVELOPMENT_TEAM = 4T76MG2EEJ;
 				INFOPLIST_FILE = RxTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,7 +1,7 @@
 //
 //  AppDelegate.swift
 //  RxTest
-//
+//  MVVM 페턴 연습 프로젝트
 //  Created by Changyeol Seo on 2021/07/02.
 //
 
