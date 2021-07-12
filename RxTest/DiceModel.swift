@@ -19,6 +19,24 @@ class DiceModel : Object {
 }
 
 extension DiceModel {
+    var image:UIImage? {
+        switch number {
+        case 1:
+            return #imageLiteral(resourceName: "dice 1")
+        case 2:
+            return #imageLiteral(resourceName: "dice 2")
+        case 3:
+            return #imageLiteral(resourceName: "dice 3")
+        case 4:
+            return #imageLiteral(resourceName: "dice 4")
+        case 5:
+            return #imageLiteral(resourceName: "dice 5")
+        case 6:
+            return #imageLiteral(resourceName: "dice 6")
+        default:
+            return nil
+        }
+    }
     static var random:DiceModel {
         let realm = try! Realm()
         realm.beginWrite()

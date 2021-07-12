@@ -56,10 +56,9 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! DiceDetailTableViewCell
         let data = viewModel.list.reversed()[indexPath.row]
-        cell.textLabel?.text = "\(data.timeStamp)"
-        cell.detailTextLabel?.text = "\(data.number)"
+        cell.diceId = data.id
         return cell
     }
     
@@ -79,4 +78,5 @@ class ViewController: UITableViewController {
         return config
     }
 }
+
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B07632C269C1F5300595DFF /* DiceDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07632B269C1F5300595DFF /* DiceDetailTableViewCell.swift */; };
 		1BBC23EE268F026E007E5082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC23ED268F026E007E5082 /* AppDelegate.swift */; };
 		1BBC23F0268F026E007E5082 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC23EF268F026E007E5082 /* SceneDelegate.swift */; };
 		1BBC23F2268F026E007E5082 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC23F1268F026E007E5082 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B07632B269C1F5300595DFF /* DiceDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1BBC23EA268F026E007E5082 /* RxTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BBC23ED268F026E007E5082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BBC23EF268F026E007E5082 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				1BBC2403268F03B1007E5082 /* DiceViewModel.swift */,
 				1BD0A1DB2697C57100118ECA /* GameModel.swift */,
 				1BD0A1DD2697C92400118ECA /* GameViewModel.swift */,
+				1B07632B269C1F5300595DFF /* DiceDetailTableViewCell.swift */,
 			);
 			path = RxTest;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				1BBC2402268F0370007E5082 /* DiceModel.swift in Sources */,
 				1BD0A1E02697CA6700118ECA /* GameTableViewController.swift in Sources */,
 				1BBC2404268F03B1007E5082 /* DiceViewModel.swift in Sources */,
+				1B07632C269C1F5300595DFF /* DiceDetailTableViewCell.swift in Sources */,
 				1BBC23F2268F026E007E5082 /* ViewController.swift in Sources */,
 				1BBC23EE268F026E007E5082 /* AppDelegate.swift in Sources */,
 				1BBC23F0268F026E007E5082 /* SceneDelegate.swift in Sources */,
