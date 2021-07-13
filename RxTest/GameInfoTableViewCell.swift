@@ -36,10 +36,12 @@ class GameInfoTableViewCell: UITableViewCell {
             titleLabel.text = nil 
         }
         sumLabel.text = "합계 : \(gameModel?.sum ?? 0)"
-        
+        backgroundColor = gameModel?.color
+
         Observable.collection(from: try! Realm().objects(GameModel.self))
             .subscribe { [weak self]event in
                 self?.collectionView.reloadData()
+
             }.disposed(by: disposeBag)
     }
 }

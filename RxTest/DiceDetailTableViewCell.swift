@@ -19,6 +19,16 @@ class DiceDetailTableViewCell: UITableViewCell {
         return nil
     }
     
+    fileprivate var gameModel:GameModel? {
+        if let dice = diceModel {
+            let list = try! Realm().objects(GameModel.self).filter({ game in
+                return game.dices.contains(dice)
+            })
+            return list.last
+        }
+        return nil
+    }
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var diceImageView: UIImageView!
     
@@ -31,5 +41,6 @@ class DiceDetailTableViewCell: UITableViewCell {
         
         titleLabel.text = "\(dice.timeStamp)"
         diceImageView.image = dice.image
+        backgroundColor = gameModel?.color
     }
 }

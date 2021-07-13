@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 import RxRealm
 import RxSwift
 import RxCocoa
@@ -19,6 +20,15 @@ class GameTableViewController: UITableViewController {
     
     let disposeBag = DisposeBag()
     let picker = UIPickerView()
+    
+    
+    struct TableRowData:Hashable {
+        let id:String
+        let row:Int
+        public static func == (lhs: TableRowData, rhs: TableRowData) -> Bool {
+            return lhs.id == rhs.id
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,18 +47,16 @@ class GameTableViewController: UITableViewController {
 
         viewModel.observerbleList.subscribe { [weak self]event in
             print("GameTableViewController --------------------------------------")
-
+            
             switch event {
-            case .next(let list):
-                let count = self?.viewModel.list.count ?? 0
-                let newCount = list.count
-                print("count : \(count) newCount: \(newCount)")
+            case .next(_):
+                self?.tableView.reloadData()
             case .completed:
                 print("completed")
             case .error(let error):
                 print(error.localizedDescription)
             }
-            self?.tableView.reloadData()
+            
         }.disposed(by: disposeBag)
     }
 
