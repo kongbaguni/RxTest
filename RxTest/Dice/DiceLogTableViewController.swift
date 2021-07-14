@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DiceLogTableViewController.swift
 //  RxTest
 //
 //  Created by Changyeol Seo on 2021/07/02.
@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class ViewController: UITableViewController {
+class DiceLogTableViewController: UITableViewController {
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var deleteAllButton: UIButton!
     

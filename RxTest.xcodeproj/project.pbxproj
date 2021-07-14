@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		1B07632C269C1F5300595DFF /* DiceDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07632B269C1F5300595DFF /* DiceDetailTableViewCell.swift */; };
 		1B07632E269C22FB00595DFF /* GameInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07632D269C22FB00595DFF /* GameInfoTableViewCell.swift */; };
+		1B34C788269E7876006326C8 /* Dice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B34C787269E7876006326C8 /* Dice.storyboard */; };
 		1BBC23EE268F026E007E5082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC23ED268F026E007E5082 /* AppDelegate.swift */; };
 		1BBC23F0268F026E007E5082 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC23EF268F026E007E5082 /* SceneDelegate.swift */; };
-		1BBC23F2268F026E007E5082 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC23F1268F026E007E5082 /* ViewController.swift */; };
+		1BBC23F2268F026E007E5082 /* DiceLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC23F1268F026E007E5082 /* DiceLogTableViewController.swift */; };
 		1BBC23F5268F026E007E5082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BBC23F3268F026E007E5082 /* Main.storyboard */; };
 		1BBC23F7268F0270007E5082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BBC23F6268F0270007E5082 /* Assets.xcassets */; };
 		1BBC23FA268F0270007E5082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BBC23F8268F0270007E5082 /* LaunchScreen.storyboard */; };
@@ -26,10 +27,11 @@
 /* Begin PBXFileReference section */
 		1B07632B269C1F5300595DFF /* DiceDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1B07632D269C22FB00595DFF /* GameInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoTableViewCell.swift; sourceTree = "<group>"; };
+		1B34C787269E7876006326C8 /* Dice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dice.storyboard; sourceTree = "<group>"; };
 		1BBC23EA268F026E007E5082 /* RxTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BBC23ED268F026E007E5082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BBC23EF268F026E007E5082 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1BBC23F1268F026E007E5082 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1BBC23F1268F026E007E5082 /* DiceLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceLogTableViewController.swift; sourceTree = "<group>"; };
 		1BBC23F4268F026E007E5082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1BBC23F6268F0270007E5082 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BBC23F9268F0270007E5082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,13 +62,14 @@
 		1B34C785269E76B5006326C8 /* Dice */ = {
 			isa = PBXGroup;
 			children = (
-				1BBC23F1268F026E007E5082 /* ViewController.swift */,
+				1BBC23F1268F026E007E5082 /* DiceLogTableViewController.swift */,
 				1BBC2403268F03B1007E5082 /* DiceViewModel.swift */,
 				1BD0A1DB2697C57100118ECA /* GameModel.swift */,
 				1BD0A1DD2697C92400118ECA /* GameViewModel.swift */,
 				1B07632B269C1F5300595DFF /* DiceDetailTableViewCell.swift */,
 				1B07632D269C22FB00595DFF /* GameInfoTableViewCell.swift */,
 				1BBC2401268F0370007E5082 /* DiceModel.swift */,
+				1B34C787269E7876006326C8 /* Dice.storyboard */,
 			);
 			path = Dice;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				1BBC23FA268F0270007E5082 /* LaunchScreen.storyboard in Resources */,
 				1BBC23F7268F0270007E5082 /* Assets.xcassets in Resources */,
 				1BBC23F5268F026E007E5082 /* Main.storyboard in Resources */,
+				1B34C788269E7876006326C8 /* Dice.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +244,7 @@
 				1BD0A1E02697CA6700118ECA /* GameTableViewController.swift in Sources */,
 				1BBC2404268F03B1007E5082 /* DiceViewModel.swift in Sources */,
 				1B07632C269C1F5300595DFF /* DiceDetailTableViewCell.swift in Sources */,
-				1BBC23F2268F026E007E5082 /* ViewController.swift in Sources */,
+				1BBC23F2268F026E007E5082 /* DiceLogTableViewController.swift in Sources */,
 				1BBC23EE268F026E007E5082 /* AppDelegate.swift in Sources */,
 				1BBC23F0268F026E007E5082 /* SceneDelegate.swift in Sources */,
 				1B07632E269C22FB00595DFF /* GameInfoTableViewCell.swift in Sources */,
