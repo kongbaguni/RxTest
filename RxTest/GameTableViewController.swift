@@ -10,7 +10,7 @@ import RealmSwift
 import RxRealm
 import RxSwift
 import RxCocoa
-fileprivate let range = 1...10
+fileprivate let range = 1...99
 
 class GameTableViewController: UITableViewController {
     @IBOutlet weak var button: UIButton!
@@ -33,6 +33,7 @@ class GameTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        title = "주사위"
         button.rx.tap.bind { [weak self]_ in
             let txt = self?.numberTextField.text ?? "0"
             let number = NSString(string: txt).integerValue

@@ -37,6 +37,14 @@ extension DiceModel {
             return nil
         }
     }
+
+    var gameModel:GameModel? {
+        let list = try! Realm().objects(GameModel.self).filter({ game in
+            return game.dices.contains(self)
+        })
+        return list.last
+    }
+
     static var random:DiceModel {
         let realm = try! Realm()
         realm.beginWrite()
@@ -49,4 +57,5 @@ extension DiceModel {
         try! realm.commitWrite()
         return model
     }
-}   
+    
+}

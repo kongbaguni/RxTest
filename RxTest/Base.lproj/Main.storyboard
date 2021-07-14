@@ -18,13 +18,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9Eg-3g-41g" kind="relationship" relationship="viewControllers" id="fFv-vy-jPF"/>
-                        <segue destination="pkU-KU-eh5" kind="relationship" relationship="viewControllers" id="66L-XO-m3Z"/>
+                        <segue destination="YUM-Hk-ejf" kind="relationship" relationship="viewControllers" id="1bU-fk-5WH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3y-H6-cz7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1627" y="-323"/>
+            <point key="canvasLocation" x="-1917" y="-323"/>
         </scene>
         <!--주사위-->
         <scene sceneID="lYO-Tw-yZ3">
@@ -111,6 +110,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="주사위" id="aXE-6p-thd"/>
+                    <navigationItem key="navigationItem" id="0R1-Ql-QWY"/>
                     <connections>
                         <outlet property="button" destination="ibn-CV-I80" id="8JN-tK-0pW"/>
                         <outlet property="deleteAllButton" destination="yfe-jL-PXT" id="lec-v8-BIV"/>
@@ -118,12 +118,29 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5W0-H8-Z4Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-770" y="-454"/>
+            <point key="canvasLocation" x="-1032" y="1057"/>
         </scene>
-        <!--게임-->
+        <!--주사위-->
+        <scene sceneID="bkF-e8-PIj">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="siy-pI-5ez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="YUM-Hk-ejf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="주사위" id="ZjH-nS-dVG"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wzX-Xl-Rev">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pkU-KU-eh5" kind="relationship" relationship="rootViewController" id="cyK-1f-2Yo"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1916" y="384"/>
+        </scene>
+        <!--주사위 던지기-->
         <scene sceneID="ls3-2F-38B">
             <objects>
-                <tableViewController title="게임" id="pkU-KU-eh5" customClass="GameTableViewController" customModule="RxTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="주사위 던지기" id="pkU-KU-eh5" customClass="GameTableViewController" customModule="RxTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aYm-6k-mgq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,20 +175,20 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="jX0-ZX-53Y" customClass="GameInfoTableViewCell" customModule="RxTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="68.5" width="414" height="182"/>
+                                <rect key="frame" x="0.0" y="68.5" width="414" height="182.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jX0-ZX-53Y" id="hUT-2P-NrG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="182"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="182.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79b-DY-PE9">
-                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="374" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JYh-LK-J3O">
-                                            <rect key="frame" x="0.0" y="52" width="414" height="120"/>
+                                            <rect key="frame" x="0.0" y="52.5" width="414" height="120"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="120" id="Ekb-aq-Rmg"/>
@@ -207,7 +224,7 @@
                                             </collectionReusableView>
                                         </collectionView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2li-Mv-idz">
-                                            <rect key="frame" x="359" y="11" width="55" height="24"/>
+                                            <rect key="frame" x="339" y="11" width="55" height="24"/>
                                             <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -216,7 +233,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="JYh-LK-J3O" secondAttribute="bottom" constant="10" id="4w6-wI-PE9"/>
-                                        <constraint firstAttribute="trailing" secondItem="2li-Mv-idz" secondAttribute="trailing" id="6IM-MH-2X5"/>
+                                        <constraint firstAttribute="trailing" secondItem="2li-Mv-idz" secondAttribute="trailing" constant="20" id="6IM-MH-2X5"/>
                                         <constraint firstItem="2li-Mv-idz" firstAttribute="top" secondItem="79b-DY-PE9" secondAttribute="top" id="6wC-ho-B9I"/>
                                         <constraint firstItem="JYh-LK-J3O" firstAttribute="leading" secondItem="hUT-2P-NrG" secondAttribute="leading" id="8LD-ce-UTP"/>
                                         <constraint firstItem="79b-DY-PE9" firstAttribute="top" secondItem="hUT-2P-NrG" secondAttribute="topMargin" id="JCM-QY-VNx"/>
@@ -240,6 +257,13 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="게임" id="uTP-mh-pg7"/>
+                    <navigationItem key="navigationItem" id="wjO-kk-Pi9">
+                        <barButtonItem key="rightBarButtonItem" title="log" id="B8n-Om-hID">
+                            <connections>
+                                <segue destination="9Eg-3g-41g" kind="show" id="3yx-1g-di1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="button" destination="oIV-ys-n87" id="GTB-og-thW"/>
                         <outlet property="numberTextField" destination="8zs-dd-GHd" id="0yL-sx-brF"/>
@@ -247,35 +271,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5D2-Di-9z8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-771" y="195"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="nbZ-Bi-ZPN">
-            <objects>
-                <tableViewController id="kiU-6q-cDY" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vav-fc-PIu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="rRG-1e-Rdj">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rRG-1e-Rdj" id="y6b-up-kyc">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="kiU-6q-cDY" id="t99-Vz-XU4"/>
-                            <outlet property="delegate" destination="kiU-6q-cDY" id="YKz-Qa-fqu"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1bT-vW-dHq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="126" y="-4"/>
+            <point key="canvasLocation" x="-1032" y="384"/>
         </scene>
     </scenes>
     <resources>

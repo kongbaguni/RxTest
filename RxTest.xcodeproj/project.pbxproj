@@ -57,6 +57,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B34C785269E76B5006326C8 /* Dice */ = {
+			isa = PBXGroup;
+			children = (
+				1BBC23F1268F026E007E5082 /* ViewController.swift */,
+				1BBC2403268F03B1007E5082 /* DiceViewModel.swift */,
+				1BD0A1DB2697C57100118ECA /* GameModel.swift */,
+				1BD0A1DD2697C92400118ECA /* GameViewModel.swift */,
+				1B07632B269C1F5300595DFF /* DiceDetailTableViewCell.swift */,
+				1B07632D269C22FB00595DFF /* GameInfoTableViewCell.swift */,
+				1BBC2401268F0370007E5082 /* DiceModel.swift */,
+			);
+			path = Dice;
+			sourceTree = "<group>";
+		};
 		1BBC23E1268F026E007E5082 = {
 			isa = PBXGroup;
 			children = (
@@ -81,18 +95,12 @@
 				1BD0A1DA26958E2100118ECA /* RxTest.entitlements */,
 				1BBC23ED268F026E007E5082 /* AppDelegate.swift */,
 				1BBC23EF268F026E007E5082 /* SceneDelegate.swift */,
-				1BBC23F1268F026E007E5082 /* ViewController.swift */,
 				1BBC23F3268F026E007E5082 /* Main.storyboard */,
 				1BD0A1DF2697CA6700118ECA /* GameTableViewController.swift */,
 				1BBC23F6268F0270007E5082 /* Assets.xcassets */,
 				1BBC23F8268F0270007E5082 /* LaunchScreen.storyboard */,
 				1BBC23FB268F0270007E5082 /* Info.plist */,
-				1BBC2401268F0370007E5082 /* DiceModel.swift */,
-				1BBC2403268F03B1007E5082 /* DiceViewModel.swift */,
-				1BD0A1DB2697C57100118ECA /* GameModel.swift */,
-				1BD0A1DD2697C92400118ECA /* GameViewModel.swift */,
-				1B07632B269C1F5300595DFF /* DiceDetailTableViewCell.swift */,
-				1B07632D269C22FB00595DFF /* GameInfoTableViewCell.swift */,
+				1B34C785269E76B5006326C8 /* Dice */,
 			);
 			path = RxTest;
 			sourceTree = "<group>";
