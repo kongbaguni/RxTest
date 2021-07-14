@@ -106,7 +106,6 @@
         <!--주사위-->
         <scene sceneID="cbn-Uy-mgI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fZO-dm-Ajk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="6iF-un-qmf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="주사위" id="xFV-AY-a2m"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9ja-kU-28h">
@@ -117,6 +116,7 @@
                         <segue destination="uZg-UF-9Mb" kind="relationship" relationship="rootViewController" id="TD5-vO-lv1"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fZO-dm-Ajk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1916" y="384"/>
         </scene>

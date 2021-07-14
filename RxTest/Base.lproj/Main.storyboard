@@ -17,6 +17,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="UJ8-bI-Pxw" kind="relationship" relationship="viewControllers" id="USf-f9-Kd6"/>
+                        <segue destination="tLC-HO-qCJ" kind="relationship" relationship="viewControllers" id="wvs-os-EBJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3y-H6-cz7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -32,6 +33,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hax-Yq-xnG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1917" y="143"/>
+        </scene>
+        <!--Poker-->
+        <scene sceneID="Mag-Mb-QdM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Poker" id="tLC-HO-qCJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="zFY-jJ-Qb5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MsH-Sk-SXt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1627" y="127"/>
         </scene>
     </scenes>
 </document>
