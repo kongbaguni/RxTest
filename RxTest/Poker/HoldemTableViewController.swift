@@ -13,7 +13,6 @@ import RxCocoa
 
 class HoldemTableViewController: UITableViewController {
     @IBOutlet weak var playerButton: UIButton!
-    @IBOutlet weak var dealerButton: UIButton!
     
     var games:Results<HoldemGameModel> {
         try! Realm().objects(HoldemGameModel.self).sorted(byKeyPath: "timeStamp", ascending: false)
@@ -25,12 +24,11 @@ class HoldemTableViewController: UITableViewController {
         super.viewDidLoad()
 
         playerButton.rx.tap.bind { _ in
-            HoldemGameModel.make(playerId: "player")
+            for player in ["둘리","고길동","또치"] {
+                HoldemGameModel.make(playerId: player)
+            }
         }.disposed(by: disposeBag)
         
-        dealerButton.rx.tap.bind { _ in
-            HoldemGameModel.make(playerId: "dealer")
-        }.disposed(by: disposeBag)
         
         Observable.collection(from: games)
             .subscribe { [weak self] event in
@@ -54,6 +52,7 @@ class HoldemTableViewController: UITableViewController {
         for (idx,card) in game.cards.enumerated() {
             cell.imageViews[idx].image = card.image
         }
+        cell.backgroundColor = game.color
         cell.titleLabel.text = game.playerId
         return cell
     }

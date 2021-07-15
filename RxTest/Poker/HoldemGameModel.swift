@@ -12,6 +12,10 @@ class HoldemGameModel:Object  {
     @objc dynamic var timeStamp:Date = Date()
     @objc dynamic var playerId:String = ""
     
+    @objc dynamic var red:Float = .random(in: 0.0...0.5)
+    @objc dynamic var green:Float = .random(in: 0.0...0.5)
+    @objc dynamic var blue:Float = .random(in: 0.0...0.5)
+
     let cards = MutableSet<CardModel>()
     
     override static func primaryKey() -> String? {
@@ -20,6 +24,11 @@ class HoldemGameModel:Object  {
 }
 
 extension HoldemGameModel {
+    
+    var color:UIColor {
+        .init(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
+    }
+    
     static func make(playerId:String) {
         let realm = try! Realm()
         guard let cardSet = realm.objects(CardSetModel.self).last else {

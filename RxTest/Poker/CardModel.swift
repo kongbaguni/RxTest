@@ -18,6 +18,7 @@ class CardModel: Object {
 }
  
 extension CardModel {
+    
     static func clear() {
         let realm = try! Realm()
         realm.beginWrite()

@@ -138,12 +138,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISR-g9-SyA">
-                                            <rect key="frame" x="0.0" y="0.0" width="207" height="44"/>
-                                            <state key="normal" title="player"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddt-2g-4A6">
-                                            <rect key="frame" x="207" y="0.0" width="207" height="44"/>
-                                            <state key="normal" title="dealer"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <state key="normal" title="playGame"/>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -158,10 +154,10 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="game" id="4Sx-iG-V3w" customClass="HoldemTableViewCell" customModule="RxTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="68.5" width="414" height="131"/>
+                                <rect key="frame" x="0.0" y="68.5" width="414" height="141"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Sx-iG-V3w" id="joI-J2-w56">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="131"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="141"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xP8-eH-H6x">
@@ -199,7 +195,7 @@
                                         <constraint firstItem="2Nk-Lw-Xk1" firstAttribute="leading" secondItem="joI-J2-w56" secondAttribute="leading" constant="20" id="6So-CS-WVQ"/>
                                         <constraint firstAttribute="trailing" secondItem="2Nk-Lw-Xk1" secondAttribute="trailing" constant="20" id="8Ex-kY-eFL"/>
                                         <constraint firstAttribute="trailing" secondItem="xP8-eH-H6x" secondAttribute="trailing" id="IjZ-hV-CQv"/>
-                                        <constraint firstAttribute="bottom" secondItem="xP8-eH-H6x" secondAttribute="bottom" id="gfw-oI-vfF"/>
+                                        <constraint firstAttribute="bottom" secondItem="xP8-eH-H6x" secondAttribute="bottom" constant="10" id="gfw-oI-vfF"/>
                                         <constraint firstItem="xP8-eH-H6x" firstAttribute="leading" secondItem="joI-J2-w56" secondAttribute="leading" id="iFC-Sb-sHo"/>
                                         <constraint firstItem="2Nk-Lw-Xk1" firstAttribute="top" secondItem="joI-J2-w56" secondAttribute="top" id="iwL-qP-IE1"/>
                                     </constraints>
@@ -221,7 +217,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="EtA-7C-FJC"/>
                     <connections>
-                        <outlet property="dealerButton" destination="ddt-2g-4A6" id="xfn-YJ-BFA"/>
                         <outlet property="playerButton" destination="ISR-g9-SyA" id="dJ2-oz-bd8"/>
                     </connections>
                 </tableViewController>
