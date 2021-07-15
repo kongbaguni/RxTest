@@ -163,21 +163,26 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xP8-eH-H6x">
                                             <rect key="frame" x="0.0" y="31" width="414" height="100"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5yU-9w-HRz">
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qf-aV-KN0">
                                                     <rect key="frame" x="0.0" y="0.0" width="83" height="100"/>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q3n-As-f3m">
+                                                    <state key="normal" image="blue_back"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8i0-Gi-zJl">
                                                     <rect key="frame" x="83" y="0.0" width="82.5" height="100"/>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="efj-XG-IE3">
+                                                    <state key="normal" image="blue_back"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeJ-6Z-VCX">
                                                     <rect key="frame" x="165.5" y="0.0" width="83" height="100"/>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F7d-A8-JCG">
+                                                    <state key="normal" image="blue_back"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruT-hs-gWZ">
                                                     <rect key="frame" x="248.5" y="0.0" width="82.5" height="100"/>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6A6-eb-S4m">
+                                                    <state key="normal" image="blue_back"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgc-JH-QQI">
                                                     <rect key="frame" x="331" y="0.0" width="83" height="100"/>
-                                                </imageView>
+                                                    <state key="normal" image="blue_back"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="Rh9-Y7-o19"/>
@@ -202,11 +207,11 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="titleLabel" destination="2Nk-Lw-Xk1" id="Qjo-dP-9Yb"/>
-                                    <outletCollection property="imageViews" destination="5yU-9w-HRz" collectionClass="NSMutableArray" id="43v-sl-UIY"/>
-                                    <outletCollection property="imageViews" destination="q3n-As-f3m" collectionClass="NSMutableArray" id="5gX-kO-IxL"/>
-                                    <outletCollection property="imageViews" destination="efj-XG-IE3" collectionClass="NSMutableArray" id="nzk-wc-Atp"/>
-                                    <outletCollection property="imageViews" destination="F7d-A8-JCG" collectionClass="NSMutableArray" id="5h0-65-FVu"/>
-                                    <outletCollection property="imageViews" destination="6A6-eb-S4m" collectionClass="NSMutableArray" id="QVF-VN-gTV"/>
+                                    <outletCollection property="buttons" destination="1qf-aV-KN0" collectionClass="NSMutableArray" id="aCv-Vi-tQi"/>
+                                    <outletCollection property="buttons" destination="8i0-Gi-zJl" collectionClass="NSMutableArray" id="uGy-fN-edr"/>
+                                    <outletCollection property="buttons" destination="KeJ-6Z-VCX" collectionClass="NSMutableArray" id="Rpd-mV-TmI"/>
+                                    <outletCollection property="buttons" destination="ruT-hs-gWZ" collectionClass="NSMutableArray" id="EsL-rS-zWO"/>
+                                    <outletCollection property="buttons" destination="fgc-JH-QQI" collectionClass="NSMutableArray" id="PME-vz-brB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -245,6 +250,7 @@
         <segue reference="IuW-yg-xx1"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="blue_back" width="345.5" height="528"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

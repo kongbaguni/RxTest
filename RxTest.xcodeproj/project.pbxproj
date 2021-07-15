@@ -26,6 +26,9 @@
 		1BC870C2269FC8FD00EB4503 /* HoldemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC870C1269FC8FD00EB4503 /* HoldemTableViewController.swift */; };
 		1BC870C4269FC95300EB4503 /* HoldemGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC870C3269FC95300EB4503 /* HoldemGameModel.swift */; };
 		1BC870C6269FE66A00EB4503 /* CardTrashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC870C5269FE66A00EB4503 /* CardTrashModel.swift */; };
+		1BC870C826A00EAA00EB4503 /* HoldemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC870C726A00EAA00EB4503 /* HoldemTableViewCell.swift */; };
+		1BC870CB26A0133700EB4503 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC870CA26A0133700EB4503 /* Date+Extensions.swift */; };
+		1BC870CD26A0161B00EB4503 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC870CC26A0161B00EB4503 /* String+Extensions.swift */; };
 		1BD0A1DC2697C57100118ECA /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0A1DB2697C57100118ECA /* GameModel.swift */; };
 		1BD0A1DE2697C92400118ECA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0A1DD2697C92400118ECA /* GameViewModel.swift */; };
 		1BD0A1E02697CA6700118ECA /* GameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0A1DF2697CA6700118ECA /* GameTableViewController.swift */; };
@@ -54,6 +57,9 @@
 		1BC870C1269FC8FD00EB4503 /* HoldemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldemTableViewController.swift; sourceTree = "<group>"; };
 		1BC870C3269FC95300EB4503 /* HoldemGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldemGameModel.swift; sourceTree = "<group>"; };
 		1BC870C5269FE66A00EB4503 /* CardTrashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTrashModel.swift; sourceTree = "<group>"; };
+		1BC870C726A00EAA00EB4503 /* HoldemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldemTableViewCell.swift; sourceTree = "<group>"; };
+		1BC870CA26A0133700EB4503 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		1BC870CC26A0161B00EB4503 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		1BD0A1DA26958E2100118ECA /* RxTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RxTest.entitlements; sourceTree = "<group>"; };
 		1BD0A1DB2697C57100118ECA /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		1BD0A1DD2697C92400118ECA /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 		1BBC23EC268F026E007E5082 /* RxTest */ = {
 			isa = PBXGroup;
 			children = (
+				1BC870C926A0128200EB4503 /* extensions */,
 				1BD0A1DA26958E2100118ECA /* RxTest.entitlements */,
 				1BBC23ED268F026E007E5082 /* AppDelegate.swift */,
 				1BBC23EF268F026E007E5082 /* SceneDelegate.swift */,
@@ -134,10 +141,20 @@
 				1BC870B9269EC76A00EB4503 /* Poker.storyboard */,
 				1BC870BF269FC67F00EB4503 /* PokerMenuTableViewController.swift */,
 				1BC870C1269FC8FD00EB4503 /* HoldemTableViewController.swift */,
+				1BC870C726A00EAA00EB4503 /* HoldemTableViewCell.swift */,
 				1BC870C3269FC95300EB4503 /* HoldemGameModel.swift */,
 				1BC870BB269EC83000EB4503 /* PorkerCardCollectionViewController.swift */,
 			);
 			path = Poker;
+			sourceTree = "<group>";
+		};
+		1BC870C926A0128200EB4503 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1BC870CA26A0133700EB4503 /* Date+Extensions.swift */,
+				1BC870CC26A0161B00EB4503 /* String+Extensions.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		6AA73D2521EAF53C1B28704D /* Frameworks */ = {
@@ -273,6 +290,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BC870CD26A0161B00EB4503 /* String+Extensions.swift in Sources */,
+				1BC870C826A00EAA00EB4503 /* HoldemTableViewCell.swift in Sources */,
 				1BBC2402268F0370007E5082 /* DiceModel.swift in Sources */,
 				1BC870BE269ED33700EB4503 /* CardSetModel.swift in Sources */,
 				1BC870C6269FE66A00EB4503 /* CardTrashModel.swift in Sources */,
@@ -285,6 +304,7 @@
 				1BBC23F2268F026E007E5082 /* DiceLogTableViewController.swift in Sources */,
 				1BC870C0269FC67F00EB4503 /* PokerMenuTableViewController.swift in Sources */,
 				1BC870C2269FC8FD00EB4503 /* HoldemTableViewController.swift in Sources */,
+				1BC870CB26A0133700EB4503 /* Date+Extensions.swift in Sources */,
 				1BBC23EE268F026E007E5082 /* AppDelegate.swift in Sources */,
 				1BBC23F0268F026E007E5082 /* SceneDelegate.swift in Sources */,
 				1B07632E269C22FB00595DFF /* GameInfoTableViewCell.swift in Sources */,

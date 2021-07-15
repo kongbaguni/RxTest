@@ -64,9 +64,25 @@ extension CardModel {
         case seven = "7"
         case eught = "8"
         case nine = "9"
+        case ten = "10"
         case junior = "j"
         case queen = "q"
         case king = "k"
+    }
+    
+    var cardIndex:Int {
+        switch cardType {
+        case .ace:
+            return 1
+        case .junior:
+            return 11
+        case .queen:
+            return 12
+        case .king:
+            return 13
+        default:
+            return cardType?.rawValue.integerValue ?? 0
+        }
     }
     
     var cardFamily:CardFamily? {

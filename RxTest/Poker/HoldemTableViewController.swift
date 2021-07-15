@@ -23,6 +23,7 @@ class HoldemTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Holdem Test"
         playerButton.rx.tap.bind { _ in
             for player in ["둘리","고길동","또치"] {
                 HoldemGameModel.make(playerId: player)
@@ -50,17 +51,18 @@ class HoldemTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "game", for: indexPath) as! HoldemTableViewCell
         let game = games[indexPath.row]
         for (idx,card) in game.cards.enumerated() {
-            cell.imageViews[idx].image = card.image
+            cell.buttons[idx].setImage(card.image, for: .selected)
+        }
+        for btn in cell.buttons {
+            btn.rx.tap.bind { _ in
+                tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+            }.disposed(by: disposeBag)
         }
         cell.backgroundColor = game.color
-        cell.titleLabel.text = game.playerId
+        cell.titleLabel.text = "\(game.timeStamp.formatedString(format: "yyyy.MM.dd HH:mm:ss")!) \(game.playerId) \(game.ranking)"
         return cell
     }
 
 }
 
 
-class HoldemTableViewCell : UITableViewCell {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet var imageViews: [UIImageView]!
-}
