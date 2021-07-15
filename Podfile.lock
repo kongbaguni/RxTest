@@ -1,4 +1,7 @@
 PODS:
+  - DynamicBlurView (4.1.0)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
   - Realm (10.10.0):
     - Realm/Headers (= 10.10.0)
   - Realm/Headers (10.10.0)
@@ -17,6 +20,7 @@ PODS:
   - RxSwift (6.2.0)
 
 DEPENDENCIES:
+  - PopupDialog
   - RealmSwift
   - RxCocoa
   - RxRealm
@@ -24,6 +28,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - DynamicBlurView
+    - PopupDialog
     - Realm
     - RealmSwift
     - RxCocoa
@@ -32,6 +38,8 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
+  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   Realm: f501df41a4222c67850c77cf135d472192ecf294
   RealmSwift: c69aadfc7db0d60075178d037c2f34ada73d5201
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
@@ -39,6 +47,6 @@ SPEC CHECKSUMS:
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
-PODFILE CHECKSUM: 97fefcd03864bc31f5798fbabd515f22c525351a
+PODFILE CHECKSUM: b9bdd254264996af727abd1fdc83903a877527de
 
 COCOAPODS: 1.10.1

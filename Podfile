@@ -10,4 +10,5 @@ pod 'RxSwift'
 pod 'RxCocoa'
 pod 'RealmSwift'
 pod 'RxRealm'
+pod 'PopupDialog'
 end
