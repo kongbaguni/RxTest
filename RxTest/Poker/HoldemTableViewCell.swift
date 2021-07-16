@@ -9,12 +9,16 @@ import UIKit
 
 class HoldemTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet var dealerButtons : [UIButton]!
     @IBOutlet var buttons: [UIButton]!
+    @IBOutlet var playerButtons : [UIButton]!
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        for btn in buttons {
-            btn.isSelected = selected
+        for set in [dealerButtons, buttons, playerButtons] {
+            for btn in set ?? [] {
+                btn.isSelected = selected
+            }
         }
     }
 

@@ -16,7 +16,9 @@ class HoldemGameModel:Object  {
     @objc dynamic var green:Float = .random(in: 0.0...0.5)
     @objc dynamic var blue:Float = .random(in: 0.0...0.5)
 
-    let cards = MutableSet<CardModel>()
+    let dealerCards = MutableSet<CardModel>()
+    let comunitiCards = MutableSet<CardModel>()
+    let playerCards =  MutableSet<CardModel>()
     
     override static func primaryKey() -> String? {
         return "id"
@@ -35,7 +37,7 @@ extension HoldemGameModel {
             make(playerId: playerId)
             return
         }
-        if cardSet.cards.count < 5 {
+        if cardSet.cards.count < (5 + 2 + 2 + 2) {
             CardTrashModel.discard(cards: cardSet.cards.shuffled())
             realm.beginWrite()
             realm.delete(cardSet)
@@ -45,13 +47,46 @@ extension HoldemGameModel {
         }
         
         let game = HoldemGameModel()
-        for _ in 1...5 {
-            game.cards.insert(cardSet.dropRandomCard()!)
+        game.dealerCards.insert(cardSet.dropRandomCard()!)
+        game.dealerCards.insert(cardSet.dropRandomCard()!)
+        
+        game.playerCards.insert(cardSet.dropRandomCard()!)
+        game.playerCards.insert(cardSet.dropRandomCard()!)
+        
+        for _ in 1...3 {
+            game.comunitiCards.insert(cardSet.dropRandomCard()!)
         }
+        
         game.playerId = playerId
         realm.beginWrite()
         realm.add(game)
         try! realm.commitWrite()
+    }
+    
+    func turn() {
+        if comunitiCards.count > 3 {
+            return
+        }
+        print("turn")
+        let realm = try! Realm()
+        let cardSet = realm.objects(CardSetModel.self).last!
+        let card = cardSet.dropRandomCard()!
+        try! realm.write {
+            comunitiCards.insert(card)
+        }
+    }
+    
+    func river() {
+        if comunitiCards.count > 4 {
+            return
+        }
+        print("river")
+        let realm = try! Realm()
+        let cardSet = realm.objects(CardSetModel.self).last!
+        let card = cardSet.dropRandomCard()!
+        try! realm.write {
+            comunitiCards.insert(card)
+        }
     }
     
     
@@ -68,7 +103,11 @@ extension HoldemGameModel {
         case highCard = 9
     }
 
-    var ranking:Ranking {
+    func getRanking(cards:[CardModel])->Ranking {
+        /** 인덱스 순으로 정렬 (스트레이트 검출용)*/
+        var cardarrAny:[[CardModel]] = [[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
+        
+        /** 족보별로 정렬*/
         var cardarr:[[CardModel?]] = [
             [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil],
             [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil],
@@ -106,6 +145,7 @@ extension HoldemGameModel {
             }
             for idx in index ?? [] {
                 cardarr[idx.0][idx.1] = card
+                cardarrAny[idx.1].append(card)
             }
         }
         
@@ -120,12 +160,8 @@ extension HoldemGameModel {
             set.append(cset)
         }
         
-        let cntA = set[0].count
-        let cntB = set[1].count
-        let cntC = set[2].count
-        let cntD = set[3].count
-        
-        if cntA == 5 || cntB == 5 || cntC == 5 || cntD == 5 {
+        let cardCount = set.map{$0.count}
+        if cardCount.contains(5) {
             var count = 0
             for set in cardarr {
                 for card in set {
@@ -146,9 +182,56 @@ extension HoldemGameModel {
             }
             return .flush
         }
-        print("----------------")
-        print("\(set)")
-        print("\(cntA) \(cntB) \(cntC) \(cntD)")
+
+        var count = 0
+        for card in cardarrAny {
+            if card.count > 0 {
+                count += 1
+                if count == 5 {
+                    return .straight
+                }
+            } else {
+                count = 0
+            }
+        }
+        
+        var dic:[Int:Set<CardModel>] = [:]
+        for arr in cardarr {
+            for c in arr {
+                if let card = c {
+                    if dic[card.cardIndex] == nil {
+                        dic[card.cardIndex] = Set<CardModel>()
+                    }
+                    dic[card.cardIndex]?.insert(card)
+                }
+            }
+        }
+        
+        for value in dic {
+            var have3 = 0
+            var have2 = 0
+            if value.value.count == 4 {
+                return .fourOfAKind
+            }
+            if value.value.count == 3 {
+                have3 += 1
+            }
+            if value.value.count == 2 {
+                have2 += 1
+            }
+            if have3 == 1 && have2 == 1 {
+                return .fullHouse
+            }
+            if have3 == 1 {
+                return .threeOfAKind
+            }
+            if have2 == 2 {
+                return .twoPair
+            }
+            if have2 == 1 {
+                return .onePair
+            }
+        }
         
         return .highCard
     }

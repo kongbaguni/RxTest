@@ -50,16 +50,43 @@ class HoldemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "game", for: indexPath) as! HoldemTableViewCell
         let game = games[indexPath.row]
-        for (idx,card) in game.cards.enumerated() {
-            cell.buttons[idx].setImage(card.image, for: .selected)
+        
+        for btn in cell.buttons {
+            btn.isHidden = true
         }
+        for (idx,card) in game.comunitiCards.enumerated() {
+            cell.buttons[idx].setImage(card.image, for: .selected)
+            cell.buttons[idx].isHidden = false
+        }
+        for (idx,card) in game.dealerCards.enumerated() {
+            cell.dealerButtons[idx].setImage(card.image, for: .selected)
+        }
+        for (idx,card) in game.playerCards.enumerated() {
+            cell.playerButtons[idx].setImage(card.image, for: .selected)
+        }
+
+        
         for btn in cell.buttons {
             btn.rx.tap.bind { _ in
                 tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
             }.disposed(by: disposeBag)
         }
+        
+        for btn in cell.playerButtons {
+            btn.rx.tap.bind { _ in
+                if game.comunitiCards.count == 3 {
+                    game.turn()
+                    return
+                }
+                if game.comunitiCards.count == 4 {
+                    game.river()
+                    return
+                }
+            }.disposed(by: disposeBag)
+        }
+        
         cell.backgroundColor = game.color
-        cell.titleLabel.text = "\(game.timeStamp.formatedString(format: "yyyy.MM.dd HH:mm:ss")!) \(game.playerId) \(game.ranking)"
+        cell.titleLabel.text = "\(game.timeStamp.formatedString(format: "yyyy.MM.dd HH:mm:ss")!) \(game.playerId)"
         return cell
     }
 
