@@ -50,6 +50,8 @@ class HoldemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "game", for: indexPath) as! HoldemTableViewCell
         let game = games[indexPath.row]
+        let dealerRanking = game.dealerRanking
+        let playerRanking = game.playerRanking
         
         for btn in cell.buttons {
             btn.isHidden = true
@@ -66,25 +68,47 @@ class HoldemTableViewController: UITableViewController {
         }
 
         
+        cell.dealerLabel.text = "\(dealerRanking.0)"
+        cell.playerLabel.text = "\(playerRanking.0)"
         for btn in cell.buttons {
             btn.rx.tap.bind { _ in
                 tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
             }.disposed(by: disposeBag)
         }
         
-        for btn in cell.playerButtons {
+
+        for btn in cell.dealerButtons {
             btn.rx.tap.bind { _ in
-                if game.comunitiCards.count == 3 {
-                    game.turn()
-                    return
-                }
-                if game.comunitiCards.count == 4 {
-                    game.river()
-                    return
+                for (idx,card) in game.comunitiCards.enumerated() {
+                    cell.buttons[idx].alpha = 0.5
+                    if dealerRanking.1.contains(card) {
+                        cell.buttons[idx].alpha = 1
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                        UIView.animate(withDuration: 0.5) {
+                            cell.buttons[idx].alpha = 1
+                        }
+                    }
                 }
             }.disposed(by: disposeBag)
         }
         
+        for btn in cell.playerButtons {
+            btn.rx.tap.bind { _ in
+                for (idx,card) in game.comunitiCards.enumerated() {
+                    cell.buttons[idx].alpha = 0.5
+                    if playerRanking.1.contains(card) {
+                        cell.buttons[idx].alpha = 1
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                        UIView.animate(withDuration: 0.5) {
+                            cell.buttons[idx].alpha = 1
+                        }
+                    }
+                }
+            }.disposed(by: disposeBag)
+        }
+                
         cell.backgroundColor = game.color
         cell.titleLabel.text = "\(game.timeStamp.formatedString(format: "yyyy.MM.dd HH:mm:ss")!) \(game.playerId)"
         return cell

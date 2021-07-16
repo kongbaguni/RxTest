@@ -8,6 +8,8 @@
 import UIKit
 
 class HoldemTableViewCell: UITableViewCell {
+    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var dealerLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet var dealerButtons : [UIButton]!
     @IBOutlet var buttons: [UIButton]!

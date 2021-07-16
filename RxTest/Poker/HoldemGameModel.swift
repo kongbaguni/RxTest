@@ -53,7 +53,7 @@ extension HoldemGameModel {
         game.playerCards.insert(cardSet.dropRandomCard()!)
         game.playerCards.insert(cardSet.dropRandomCard()!)
         
-        for _ in 1...3 {
+        for _ in 1...5 {
             game.comunitiCards.insert(cardSet.dropRandomCard()!)
         }
         
@@ -61,32 +61,6 @@ extension HoldemGameModel {
         realm.beginWrite()
         realm.add(game)
         try! realm.commitWrite()
-    }
-    
-    func turn() {
-        if comunitiCards.count > 3 {
-            return
-        }
-        print("turn")
-        let realm = try! Realm()
-        let cardSet = realm.objects(CardSetModel.self).last!
-        let card = cardSet.dropRandomCard()!
-        try! realm.write {
-            comunitiCards.insert(card)
-        }
-    }
-    
-    func river() {
-        if comunitiCards.count > 4 {
-            return
-        }
-        print("river")
-        let realm = try! Realm()
-        let cardSet = realm.objects(CardSetModel.self).last!
-        let card = cardSet.dropRandomCard()!
-        try! realm.write {
-            comunitiCards.insert(card)
-        }
     }
     
     
@@ -103,7 +77,46 @@ extension HoldemGameModel {
         case highCard = 9
     }
 
-    func getRanking(cards:[CardModel])->Ranking {
+    fileprivate func getCardArrForRanking(a:CardModel,b:CardModel)->[[CardModel]] {
+        if comunitiCards.count < 3 {
+            return []
+        }
+
+        let c = comunitiCards[0]
+        let d = comunitiCards[1]
+        let e = comunitiCards[2]
+        var result = [[a,b,c,d,e]]
+        
+        if comunitiCards.count > 3 {
+            let f = comunitiCards[3]
+            for arr in [[a,b,c,d,f],[a,b,c,e,f],[a,b,d,e,f]] {
+                result.append(arr)
+            }
+            if comunitiCards.count > 4 {
+                let g = comunitiCards[4]
+                for arr in [[a,b,c,d,g],[a,b,c,e,g],[a,b,c,f,g],[a,b,d,f,g],[a,b,e,f,g]] {
+                    result.append(arr)
+                }
+            }
+        }
+        return result
+    }
+    
+    fileprivate var playerCardArrForRanking:[[CardModel]] {
+        if let a = playerCards.first, let b = playerCards.last {
+            return getCardArrForRanking(a: a, b: b)
+        }
+        return []
+    }
+    
+    fileprivate var dealerCardArrForRanking:[[CardModel]] {
+        if let a = dealerCards.first, let b = dealerCards.last {
+            return getCardArrForRanking(a: a, b: b)
+        }
+        return []
+    }
+    
+    fileprivate func getRanking(cards:[CardModel])->Ranking {
         /** 인덱스 순으로 정렬 (스트레이트 검출용)*/
         var cardarrAny:[[CardModel]] = [[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
         
@@ -236,4 +249,25 @@ extension HoldemGameModel {
         return .highCard
     }
     
+    var playerRanking:(Ranking,[CardModel]) {
+        var list:[(Ranking,[CardModel])] = []
+        for arr in playerCardArrForRanking {
+            list.append((getRanking(cards: arr),arr))
+        }
+        list.sort { a, b in
+            return a.0.rawValue < b.0.rawValue
+        }
+        return list.first!
+    }
+    
+    var dealerRanking:(Ranking,[CardModel]) {
+        var list:[(Ranking,[CardModel])] = []
+        for arr in dealerCardArrForRanking {
+            list.append((getRanking(cards: arr),arr))
+        }
+        list.sort { a, b in
+            return a.0.rawValue < b.0.rawValue
+        }
+        return list.first!
+    }
 }

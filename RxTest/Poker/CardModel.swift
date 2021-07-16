@@ -107,6 +107,11 @@ extension CardModel {
         if cardFamily == nil {
             return #imageLiteral(resourceName: "joker")
         }
-        return UIImage(named: value)
+        let image = UIImage(named: value)
+        if image == nil {
+            print(value)
+            abort()
+        }
+        return image
     }
 }
