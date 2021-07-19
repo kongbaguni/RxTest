@@ -134,11 +134,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sni-Lo-sGF">
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sni-Lo-sGF">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <subviews>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="634-Pf-wAC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="22"/>
+                                        </progressView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISR-g9-SyA">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="22" width="414" height="22"/>
                                             <state key="normal" title="playGame"/>
                                         </button>
                                     </subviews>
@@ -288,11 +291,12 @@
                     <navigationItem key="navigationItem" id="EtA-7C-FJC"/>
                     <connections>
                         <outlet property="playerButton" destination="ISR-g9-SyA" id="dJ2-oz-bd8"/>
+                        <outlet property="progressView" destination="634-Pf-wAC" id="5xQ-u7-ZRI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gz-BV-X62" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="690" y="775"/>
+            <point key="canvasLocation" x="706" y="764"/>
         </scene>
         <!--Poker-->
         <scene sceneID="stJ-rc-bxY">

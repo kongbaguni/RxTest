@@ -53,10 +53,14 @@ extension HoldemGameModel {
         game.playerCards.insert(cardSet.dropRandomCard()!)
         game.playerCards.insert(cardSet.dropRandomCard()!)
         
-        for _ in 1...5 {
+        for _ in 1...3 {
             game.comunitiCards.insert(cardSet.dropRandomCard()!)
         }
-        
+        CardTrashModel.discard(cards: [cardSet.dropRandomCard()!])
+        game.comunitiCards.insert(cardSet.dropRandomCard()!)
+        CardTrashModel.discard(cards: [cardSet.dropRandomCard()!])
+        game.comunitiCards.insert(cardSet.dropRandomCard()!)
+
         game.playerId = playerId
         realm.beginWrite()
         realm.add(game)
@@ -77,7 +81,52 @@ extension HoldemGameModel {
         case highCard = 9
     }
 
-    fileprivate func getCardArrForRanking(a:CardModel,b:CardModel)->[[CardModel]] {
+    enum GameResult {
+        case draw
+        case playerWin
+        case dealerWin
+        case notSet
+    }
+    
+    var gameResult:GameResult {
+        if comunitiCards.count == 5  && playerCards.count == 2 && dealerCards.count == 2{
+            if playerRanking.0.rawValue < dealerRanking.0.rawValue {
+                return .playerWin
+            }
+            if playerRanking.0.rawValue > dealerRanking.0.rawValue {
+                return .dealerWin
+            }
+            if playerRanking.1.kiker!.cardIndex > dealerRanking.1.kiker!.cardIndex {
+                return .playerWin
+            }
+            if playerRanking.1.kiker!.cardIndex < dealerRanking.1.kiker!.cardIndex {
+                return .dealerWin
+            }
+            return .draw
+        }        
+        return .notSet
+    }
+    
+    struct CardSetForRanking {
+        let cards:[CardModel]
+        
+        var kiker:CardModel? {
+            let kiker = cards.sorted { a, b in
+                return a.cardIndex < b.cardIndex
+            }.last
+            return kiker
+        }
+        
+        var totalPoint:Int {
+            var result = 0
+            for card in cards {
+                result += card.cardIndex
+            }
+            return result
+        }
+    }
+    /** 랭킹 카드 조합 구하기*/
+    fileprivate func getCardArrForRanking(a:CardModel,b:CardModel)->[CardSetForRanking] {
         if comunitiCards.count < 3 {
             return []
         }
@@ -99,17 +148,21 @@ extension HoldemGameModel {
                 }
             }
         }
-        return result
+        var r:[CardSetForRanking] = []
+        for arr in result {
+            r.append(.init(cards: arr))
+        }
+        return r
     }
     
-    fileprivate var playerCardArrForRanking:[[CardModel]] {
+    fileprivate var playerCardArrForRanking:[CardSetForRanking] {
         if let a = playerCards.first, let b = playerCards.last {
             return getCardArrForRanking(a: a, b: b)
         }
         return []
     }
     
-    fileprivate var dealerCardArrForRanking:[[CardModel]] {
+    fileprivate var dealerCardArrForRanking:[CardSetForRanking] {
         if let a = dealerCards.first, let b = dealerCards.last {
             return getCardArrForRanking(a: a, b: b)
         }
@@ -220,9 +273,10 @@ extension HoldemGameModel {
             }
         }
         
+
+        var have3 = 0
+        var have2 = 0
         for value in dic {
-            var have3 = 0
-            var have2 = 0
             if value.value.count == 4 {
                 return .fourOfAKind
             }
@@ -232,42 +286,61 @@ extension HoldemGameModel {
             if value.value.count == 2 {
                 have2 += 1
             }
-            if have3 == 1 && have2 == 1 {
-                return .fullHouse
-            }
-            if have3 == 1 {
-                return .threeOfAKind
-            }
-            if have2 == 2 {
-                return .twoPair
-            }
-            if have2 == 1 {
-                return .onePair
-            }
         }
+        if have3 == 1 && have2 == 1 {
+            return .fullHouse
+        }
+        if have3 == 1 {
+            return .threeOfAKind
+        }
+        if have2 == 2 {
+            return .twoPair
+        }
+        if have2 == 1 {
+            return .onePair
+        }
+
         
         return .highCard
     }
     
-    var playerRanking:(Ranking,[CardModel]) {
-        var list:[(Ranking,[CardModel])] = []
+    var playerRanking:(Ranking,CardSetForRanking) {
+        var list:[(Ranking,CardSetForRanking)] = []
         for arr in playerCardArrForRanking {
-            list.append((getRanking(cards: arr),arr))
+            list.append((getRanking(cards: arr.cards), arr))
         }
         list.sort { a, b in
+            if a.0.rawValue == b.0.rawValue {
+                return a.1.totalPoint > b.1.totalPoint
+            }
             return a.0.rawValue < b.0.rawValue
         }
+        print("player card 조합 키커 -----------")
+        for c in list.map({$0.1.cards}) {
+            print(c.map{$0.value})
+        }
+        print()
+        print("---------------------------------")
         return list.first!
     }
     
-    var dealerRanking:(Ranking,[CardModel]) {
-        var list:[(Ranking,[CardModel])] = []
+    var dealerRanking:(Ranking,CardSetForRanking) {
+        var list:[(Ranking,CardSetForRanking)] = []
         for arr in dealerCardArrForRanking {
-            list.append((getRanking(cards: arr),arr))
+            list.append((getRanking(cards: arr.cards),arr))
         }
         list.sort { a, b in
+            if a.0.rawValue == b.0.rawValue {
+                return a.1.totalPoint > b.1.totalPoint
+            }
             return a.0.rawValue < b.0.rawValue
         }
+        print("dealer card 조합 키커 -----------")
+        for c in list.map({$0.1.cards}) {
+            print(c.map{$0.value})
+        }
+
+        print("---------------------------------")
         return list.first!
     }
 }

@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 
 class HoldemTableViewController: UITableViewController {
+    @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var playerButton: UIButton!
     
     var games:Results<HoldemGameModel> {
@@ -25,7 +26,7 @@ class HoldemTableViewController: UITableViewController {
 
         title = "Holdem Test"
         playerButton.rx.tap.bind { _ in
-            for player in ["둘리","고길동","또치"] {
+            if let player = ["둘리","고길동","또치"].randomElement() {
                 HoldemGameModel.make(playerId: player)
             }
         }.disposed(by: disposeBag)
@@ -34,6 +35,18 @@ class HoldemTableViewController: UITableViewController {
         Observable.collection(from: games)
             .subscribe { [weak self] event in
                 self?.tableView.reloadData()
+            }.disposed(by: disposeBag)
+        
+        Observable.collection(from: try! Realm().objects(CardSetModel.self))
+            .subscribe { [weak self] event in
+                switch event {
+                case .next(let results):
+                    let count = results.last?.cards.count ?? 0        
+                    self?.progressView.progress = Float(count) / (13*4)
+                default:
+                    break
+                }
+                
             }.disposed(by: disposeBag)
     }
 
@@ -79,9 +92,17 @@ class HoldemTableViewController: UITableViewController {
 
         for btn in cell.dealerButtons {
             btn.rx.tap.bind { _ in
+                for btn in cell.playerButtons {
+                    btn.alpha = 0.5
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                        UIView.animate(withDuration: 0.5) {
+                            btn.alpha = 1
+                        }
+                    }
+                }
                 for (idx,card) in game.comunitiCards.enumerated() {
                     cell.buttons[idx].alpha = 0.5
-                    if dealerRanking.1.contains(card) {
+                    if dealerRanking.1.cards.contains(card) {
                         cell.buttons[idx].alpha = 1
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
@@ -95,9 +116,17 @@ class HoldemTableViewController: UITableViewController {
         
         for btn in cell.playerButtons {
             btn.rx.tap.bind { _ in
+                for btn in cell.dealerButtons {
+                    btn.alpha = 0.5
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                        UIView.animate(withDuration: 0.5) {
+                            btn.alpha = 1
+                        }
+                    }
+                }
                 for (idx,card) in game.comunitiCards.enumerated() {
                     cell.buttons[idx].alpha = 0.5
-                    if playerRanking.1.contains(card) {
+                    if playerRanking.1.cards.contains(card) {
                         cell.buttons[idx].alpha = 1
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
@@ -110,7 +139,7 @@ class HoldemTableViewController: UITableViewController {
         }
                 
         cell.backgroundColor = game.color
-        cell.titleLabel.text = "\(game.timeStamp.formatedString(format: "yyyy.MM.dd HH:mm:ss")!) \(game.playerId)"
+        cell.titleLabel.text = "\(game.timeStamp.formatedString(format: "yyyy.MM.dd HH:mm:ss")!) \(game.playerId) \(game.gameResult)"
         return cell
     }
 
