@@ -29,7 +29,7 @@ class DiceDetailTableViewCell: UITableViewCell {
             return
         }
         
-        titleLabel.text = "\(dice.timeStamp)"
+        titleLabel.text = dice.timeStamp.formatedString(format: "yyyy.MM.dd hh:mn:ss")
         diceImageView.image = dice.image
         backgroundColor = diceModel?.gameModel?.color
     }

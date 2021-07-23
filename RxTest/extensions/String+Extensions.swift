@@ -7,6 +7,7 @@
 
 import Foundation
 extension String {
+    
     var integerValue:Int {
         NSString(string:self).integerValue
     }

@@ -29,9 +29,15 @@
 		1BC870C826A00EAA00EB4503 /* HoldemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC870C726A00EAA00EB4503 /* HoldemTableViewCell.swift */; };
 		1BC870CB26A0133700EB4503 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC870CA26A0133700EB4503 /* Date+Extensions.swift */; };
 		1BC870CD26A0161B00EB4503 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC870CC26A0161B00EB4503 /* String+Extensions.swift */; };
-		1BD0A1DC2697C57100118ECA /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0A1DB2697C57100118ECA /* GameModel.swift */; };
+		1BD0A1DC2697C57100118ECA /* DiceGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0A1DB2697C57100118ECA /* DiceGameModel.swift */; };
 		1BD0A1DE2697C92400118ECA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0A1DD2697C92400118ECA /* GameViewModel.swift */; };
 		1BD0A1E02697CA6700118ECA /* GameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0A1DF2697CA6700118ECA /* GameTableViewController.swift */; };
+		C366B16926AA814200BE23AC /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366B16826AA814200BE23AC /* GameModel.swift */; };
+		C366B16C26AA91E700BE23AC /* PlayerInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C366B16B26AA91E700BE23AC /* PlayerInfo.storyboard */; };
+		C366B16E26AA933700BE23AC /* PlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366B16D26AA933700BE23AC /* PlayerTableViewController.swift */; };
+		C3A87CCE26A965F5000E72FE /* GameCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A87CCD26A965F5000E72FE /* GameCenterModel.swift */; };
+		C3A87CD226A966FA000E72FE /* BankTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A87CD126A966FA000E72FE /* BankTransactionModel.swift */; };
+		C3A87CD426A968C8000E72FE /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A87CD326A968C8000E72FE /* PlayerModel.swift */; };
 		E856B01EBCD2F73DC8DC6BD7 /* Pods_RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC40C344E2420757DD54A59 /* Pods_RxTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,12 +67,18 @@
 		1BC870CA26A0133700EB4503 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		1BC870CC26A0161B00EB4503 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		1BD0A1DA26958E2100118ECA /* RxTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RxTest.entitlements; sourceTree = "<group>"; };
-		1BD0A1DB2697C57100118ECA /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		1BD0A1DB2697C57100118ECA /* DiceGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceGameModel.swift; sourceTree = "<group>"; };
 		1BD0A1DD2697C92400118ECA /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		1BD0A1DF2697CA6700118ECA /* GameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewController.swift; sourceTree = "<group>"; };
 		35A1A2A4D9733BDE94AA1D9F /* Pods-RxTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTest.release.xcconfig"; path = "Target Support Files/Pods-RxTest/Pods-RxTest.release.xcconfig"; sourceTree = "<group>"; };
 		5CC40C344E2420757DD54A59 /* Pods_RxTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B204F4BD279104169856B334 /* Pods-RxTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTest.debug.xcconfig"; path = "Target Support Files/Pods-RxTest/Pods-RxTest.debug.xcconfig"; sourceTree = "<group>"; };
+		C366B16826AA814200BE23AC /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameModel.swift; path = ../../../../../../../GameModel.swift; sourceTree = "<group>"; };
+		C366B16B26AA91E700BE23AC /* PlayerInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayerInfo.storyboard; sourceTree = "<group>"; };
+		C366B16D26AA933700BE23AC /* PlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewController.swift; sourceTree = "<group>"; };
+		C3A87CCD26A965F5000E72FE /* GameCenterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterModel.swift; sourceTree = "<group>"; };
+		C3A87CD126A966FA000E72FE /* BankTransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTransactionModel.swift; sourceTree = "<group>"; };
+		C3A87CD326A968C8000E72FE /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +98,7 @@
 			children = (
 				1BBC23F1268F026E007E5082 /* DiceLogTableViewController.swift */,
 				1BBC2403268F03B1007E5082 /* DiceViewModel.swift */,
-				1BD0A1DB2697C57100118ECA /* GameModel.swift */,
+				1BD0A1DB2697C57100118ECA /* DiceGameModel.swift */,
 				1BD0A1DD2697C92400118ECA /* GameViewModel.swift */,
 				1B07632B269C1F5300595DFF /* DiceDetailTableViewCell.swift */,
 				1B07632D269C22FB00595DFF /* GameInfoTableViewCell.swift */,
@@ -126,6 +138,7 @@
 				1BBC23F6268F0270007E5082 /* Assets.xcassets */,
 				1BBC23F8268F0270007E5082 /* LaunchScreen.storyboard */,
 				1BBC23FB268F0270007E5082 /* Info.plist */,
+				C366B16A26AA91D000BE23AC /* player */,
 				1BC870B6269EC09500EB4503 /* Poker */,
 				1B34C785269E76B5006326C8 /* Dice */,
 			);
@@ -135,15 +148,8 @@
 		1BC870B6269EC09500EB4503 /* Poker */ = {
 			isa = PBXGroup;
 			children = (
-				1BC870B7269EC0B300EB4503 /* CardModel.swift */,
-				1BC870C5269FE66A00EB4503 /* CardTrashModel.swift */,
-				1BC870BD269ED33700EB4503 /* CardSetModel.swift */,
-				1BC870B9269EC76A00EB4503 /* Poker.storyboard */,
-				1BC870BF269FC67F00EB4503 /* PokerMenuTableViewController.swift */,
-				1BC870C1269FC8FD00EB4503 /* HoldemTableViewController.swift */,
-				1BC870C726A00EAA00EB4503 /* HoldemTableViewCell.swift */,
-				1BC870C3269FC95300EB4503 /* HoldemGameModel.swift */,
-				1BC870BB269EC83000EB4503 /* PorkerCardCollectionViewController.swift */,
+				C3A87CD026A96615000E72FE /* ViewController */,
+				C3A87CCF26A965FD000E72FE /* Model */,
 			);
 			path = Poker;
 			sourceTree = "<group>";
@@ -163,6 +169,42 @@
 				5CC40C344E2420757DD54A59 /* Pods_RxTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C366B16A26AA91D000BE23AC /* player */ = {
+			isa = PBXGroup;
+			children = (
+				C366B16B26AA91E700BE23AC /* PlayerInfo.storyboard */,
+				C366B16D26AA933700BE23AC /* PlayerTableViewController.swift */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		C3A87CCF26A965FD000E72FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BC870BD269ED33700EB4503 /* CardSetModel.swift */,
+				1BC870C5269FE66A00EB4503 /* CardTrashModel.swift */,
+				1BC870B7269EC0B300EB4503 /* CardModel.swift */,
+				C3A87CCD26A965F5000E72FE /* GameCenterModel.swift */,
+				C366B16826AA814200BE23AC /* GameModel.swift */,
+				1BC870C3269FC95300EB4503 /* HoldemGameModel.swift */,
+				C3A87CD326A968C8000E72FE /* PlayerModel.swift */,
+				C3A87CD126A966FA000E72FE /* BankTransactionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C3A87CD026A96615000E72FE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1BC870B9269EC76A00EB4503 /* Poker.storyboard */,
+				1BC870BF269FC67F00EB4503 /* PokerMenuTableViewController.swift */,
+				1BC870C1269FC8FD00EB4503 /* HoldemTableViewController.swift */,
+				1BC870C726A00EAA00EB4503 /* HoldemTableViewCell.swift */,
+				1BC870BB269EC83000EB4503 /* PorkerCardCollectionViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		C63B5DC84AF626AB6CF8533F /* Pods */ = {
@@ -236,6 +278,7 @@
 				1BBC23FA268F0270007E5082 /* LaunchScreen.storyboard in Resources */,
 				1BBC23F7268F0270007E5082 /* Assets.xcassets in Resources */,
 				1BBC23F5268F026E007E5082 /* Main.storyboard in Resources */,
+				C366B16C26AA91E700BE23AC /* PlayerInfo.storyboard in Resources */,
 				1B34C788269E7876006326C8 /* Dice.storyboard in Resources */,
 				1BC870BA269EC76A00EB4503 /* Poker.storyboard in Resources */,
 			);
@@ -293,14 +336,19 @@
 				1BC870CD26A0161B00EB4503 /* String+Extensions.swift in Sources */,
 				1BC870C826A00EAA00EB4503 /* HoldemTableViewCell.swift in Sources */,
 				1BBC2402268F0370007E5082 /* DiceModel.swift in Sources */,
+				C3A87CD226A966FA000E72FE /* BankTransactionModel.swift in Sources */,
 				1BC870BE269ED33700EB4503 /* CardSetModel.swift in Sources */,
+				C366B16926AA814200BE23AC /* GameModel.swift in Sources */,
 				1BC870C6269FE66A00EB4503 /* CardTrashModel.swift in Sources */,
 				1BC870B8269EC0B300EB4503 /* CardModel.swift in Sources */,
 				1BD0A1E02697CA6700118ECA /* GameTableViewController.swift in Sources */,
 				1BC870C4269FC95300EB4503 /* HoldemGameModel.swift in Sources */,
+				C3A87CCE26A965F5000E72FE /* GameCenterModel.swift in Sources */,
 				1BBC2404268F03B1007E5082 /* DiceViewModel.swift in Sources */,
+				C3A87CD426A968C8000E72FE /* PlayerModel.swift in Sources */,
 				1B07632C269C1F5300595DFF /* DiceDetailTableViewCell.swift in Sources */,
 				1BC870BC269EC83000EB4503 /* PorkerCardCollectionViewController.swift in Sources */,
+				C366B16E26AA933700BE23AC /* PlayerTableViewController.swift in Sources */,
 				1BBC23F2268F026E007E5082 /* DiceLogTableViewController.swift in Sources */,
 				1BC870C0269FC67F00EB4503 /* PokerMenuTableViewController.swift in Sources */,
 				1BC870C2269FC8FD00EB4503 /* HoldemTableViewController.swift in Sources */,
@@ -308,7 +356,7 @@
 				1BBC23EE268F026E007E5082 /* AppDelegate.swift in Sources */,
 				1BBC23F0268F026E007E5082 /* SceneDelegate.swift in Sources */,
 				1B07632E269C22FB00595DFF /* GameInfoTableViewCell.swift in Sources */,
-				1BD0A1DC2697C57100118ECA /* GameModel.swift in Sources */,
+				1BD0A1DC2697C57100118ECA /* DiceGameModel.swift in Sources */,
 				1BD0A1DE2697C92400118ECA /* GameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

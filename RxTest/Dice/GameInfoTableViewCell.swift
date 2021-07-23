@@ -13,9 +13,9 @@ import RxSwift
 class GameInfoTableViewCell: UITableViewCell {
     var gameId:String? = nil
     
-    var gameModel:GameModel? {
+    var gameModel:DiceGameModel? {
         if let id = gameId {
-            return try! Realm().object(ofType: GameModel.self, forPrimaryKey: id)
+            return try! Realm().object(ofType: DiceGameModel.self, forPrimaryKey: id)
         }
         return nil
     }
@@ -30,15 +30,15 @@ class GameInfoTableViewCell: UITableViewCell {
         super.layoutSubviews()
         collectionView.dataSource = self
         if let time = gameModel?.timeStamp {
-            titleLabel.text = "\(time)"
-        }
+            titleLabel.text = "\(time.formatedString(format: "yyyy.MM.dd HH:mm:ss")!) \(gameModel?.player?.name ?? "")"
+         }
         else {
             titleLabel.text = nil 
         }
         sumLabel.text = "합계 : \(gameModel?.sum ?? 0)"
         backgroundColor = gameModel?.color
 
-        Observable.collection(from: try! Realm().objects(GameModel.self))
+        Observable.collection(from: try! Realm().objects(DiceGameModel.self))
             .subscribe { [weak self]event in
                 self?.collectionView.reloadData()
 

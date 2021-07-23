@@ -26,15 +26,20 @@ class HoldemTableViewController: UITableViewController {
 
         title = "Holdem Test"
         playerButton.rx.tap.bind { _ in
-            if let player = ["둘리","고길동","또치"].randomElement() {
-                HoldemGameModel.make(playerId: player)
-            }
+            HoldemGameModel.make(playerId: .randomPlayerName)
         }.disposed(by: disposeBag)
         
         
         Observable.collection(from: games)
             .subscribe { [weak self] event in
-                self?.tableView.reloadData()
+                switch event {
+                case .next(_):
+                    let selection = self?.tableView.indexPathForSelectedRow                    
+                    self?.tableView.reloadData()
+                    self?.tableView.selectRow(at: selection, animated: true, scrollPosition: .middle)
+                default:
+                    break
+                }
             }.disposed(by: disposeBag)
         
         Observable.collection(from: try! Realm().objects(CardSetModel.self))
@@ -116,6 +121,14 @@ class HoldemTableViewController: UITableViewController {
         
         for btn in cell.playerButtons {
             btn.rx.tap.bind { _ in
+                switch game.comunitiCards.count {
+                case 3:
+                    game.turn()
+                case 4:
+                    game.river()
+                default:
+                    break
+                }
                 for btn in cell.dealerButtons {
                     btn.alpha = 0.5
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
@@ -139,7 +152,7 @@ class HoldemTableViewController: UITableViewController {
         }
                 
         cell.backgroundColor = game.color
-        cell.titleLabel.text = "\(game.timeStamp.formatedString(format: "yyyy.MM.dd HH:mm:ss")!) \(game.playerId) \(game.gameResult)"
+        cell.titleLabel.text = "\(game.timeStamp.formatedString(format: "yyyy.MM.dd HH:mm:ss")!) \(game.player?.name ?? "이름없음") \(game.gameResult)"
         return cell
     }
 

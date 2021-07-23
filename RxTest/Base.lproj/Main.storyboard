@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--playerInfo-->
         <scene sceneID="dHc-gl-R6v">
             <objects>
-                <tabBarController id="s6N-3r-p6R" sceneMemberID="viewController">
+                <tabBarController title="playerInfo" id="s6N-3r-p6R" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q9O-tU-fVZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -18,11 +18,22 @@
                     <connections>
                         <segue destination="UJ8-bI-Pxw" kind="relationship" relationship="viewControllers" id="USf-f9-Kd6"/>
                         <segue destination="tLC-HO-qCJ" kind="relationship" relationship="viewControllers" id="wvs-os-EBJ"/>
+                        <segue destination="Djw-BG-kKT" kind="relationship" relationship="viewControllers" id="teX-7V-MxF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3y-H6-cz7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1917" y="-323"/>
+        </scene>
+        <!--PlayerInfo-->
+        <scene sceneID="1kh-wM-Om4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PlayerInfo" id="Djw-BG-kKT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="IHu-GE-8iD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DK8-Hz-ZQy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1310" y="-46"/>
         </scene>
         <!--Dice-->
         <scene sceneID="mGh-TA-ggp">

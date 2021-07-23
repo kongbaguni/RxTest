@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 class CardSetModel: Object {
-    @objc dynamic var id:String = "\(UUID().uuidString)_\(Date().timeIntervalSince1970)"
+    @objc dynamic var uuid:UUID = UUID()
     @objc dynamic var timeStamp:Date = Date()
     
     @objc dynamic var red:Float = .random(in: 0.0...0.5)
@@ -18,7 +18,7 @@ class CardSetModel: Object {
     let cards = MutableSet<CardModel>()
     
     override static func primaryKey() -> String? {
-        return "id"
+        return "uuid"
     }
 }
 

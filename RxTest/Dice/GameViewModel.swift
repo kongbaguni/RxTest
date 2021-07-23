@@ -11,16 +11,16 @@ import RealmSwift
 import RxSwift
 
 struct GameViewModel {
-    var list:Results<GameModel> {
-        return try! Realm().objects(GameModel.self).sorted(byKeyPath: "timeStamp")
+    var list:Results<DiceGameModel> {
+        return try! Realm().objects(DiceGameModel.self).sorted(byKeyPath: "timeStamp")
     }
     
-    var observerbleList:Observable<Results<GameModel>> {
+    var observerbleList:Observable<Results<DiceGameModel>> {
         return Observable.collection(from: list)
     }
     
     func makeGame(diceNumber:Int) {
-        GameModel.makeGame(diceNumbere: diceNumber)
+        DiceGameModel.makeGame(diceNumbere: diceNumber, playerName: .randomPlayerName)
     }      
     
 }

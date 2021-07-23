@@ -8,13 +8,14 @@
 import Foundation
 import RealmSwift
 class CardModel: Object {
-    @objc dynamic var id:String = "\(UUID().uuidString)_\(Date().timeIntervalSince1970)"
+    @objc dynamic var uuid:UUID = UUID()
+    override static func primaryKey() -> String? {
+        return "uuid"
+    }
+
     @objc dynamic var value:String = ""
     @objc dynamic var timeStamp:Date = Date()
     
-    override static func primaryKey() -> String? {
-        return "id"
-    }
 }
  
 extension CardModel {

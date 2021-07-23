@@ -7,29 +7,15 @@
 
 import Foundation
 import RealmSwift
-class HoldemGameModel:Object  {
-    @objc dynamic var id:String = "\(UUID().uuidString)_\(Date().timeIntervalSince1970)"
-    @objc dynamic var timeStamp:Date = Date()
-    @objc dynamic var playerId:String = ""
-    
-    @objc dynamic var red:Float = .random(in: 0.0...0.5)
-    @objc dynamic var green:Float = .random(in: 0.0...0.5)
-    @objc dynamic var blue:Float = .random(in: 0.0...0.5)
 
+class HoldemGameModel: GameModel  {
     let dealerCards = MutableSet<CardModel>()
     let comunitiCards = MutableSet<CardModel>()
     let playerCards =  MutableSet<CardModel>()
     
-    override static func primaryKey() -> String? {
-        return "id"
-    }
 }
 
 extension HoldemGameModel {
-    var color:UIColor {
-        .init(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
-    }
-    
     static func make(playerId:String) {
         let realm = try! Realm()
         guard let cardSet = realm.objects(CardSetModel.self).last else {
@@ -56,17 +42,40 @@ extension HoldemGameModel {
         for _ in 1...3 {
             game.comunitiCards.insert(cardSet.dropRandomCard()!)
         }
-        CardTrashModel.discard(cards: [cardSet.dropRandomCard()!])
-        game.comunitiCards.insert(cardSet.dropRandomCard()!)
-        CardTrashModel.discard(cards: [cardSet.dropRandomCard()!])
-        game.comunitiCards.insert(cardSet.dropRandomCard()!)
 
-        game.playerId = playerId
+        game.player = PlayerModel.makePlayer(name: playerId)
         realm.beginWrite()
         realm.add(game)
         try! realm.commitWrite()
     }
     
+    fileprivate func insertCard() {
+        if comunitiCards.count == 5 {
+            return
+        }
+        let realm = try! Realm()
+        guard let cardSet = realm.objects(CardSetModel.self).last else {
+            CardSetModel.makeDeck(useJoker: false)
+            return
+        }
+        CardTrashModel.discard(cards: [cardSet.dropRandomCard()!])
+        let card = cardSet.dropRandomCard()!
+        realm.beginWrite()
+        comunitiCards.insert(card)
+        try! realm.commitWrite()
+    }
+    
+    func turn() {
+        if comunitiCards.count == 3 {
+            insertCard()
+        }
+    }
+    
+    func river() {
+        if comunitiCards.count == 4 {
+            insertCard()
+        }        
+    }
     
     enum Ranking:Int,CaseIterable {
         case royalStraightFlush = 0

@@ -39,7 +39,7 @@ extension DiceModel {
     }
 
     var gameModel:GameModel? {
-        let list = try! Realm().objects(GameModel.self).filter({ game in
+        let list = try! Realm().objects(DiceGameModel.self).filter({ game in
             return game.dices.contains(self)
         })
         return list.last
